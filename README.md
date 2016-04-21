@@ -1,6 +1,6 @@
 # gatling aem
 
-See [gatling-sbt](http://gatling.io/docs/2.1.6/extensions/sbt_plugin.html)
+See [gatling 2.2](http://gatling.io/docs/2.2.0/) and [gatling-sbt](http://gatling.io/docs/2.1.6/extensions/sbt_plugin.html)
 
 Tasks
 
