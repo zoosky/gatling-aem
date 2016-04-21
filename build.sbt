@@ -1,0 +1,1 @@
+libraryDependencies += "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.2.0"
