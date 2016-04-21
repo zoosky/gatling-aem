@@ -15,4 +15,8 @@
 			.headers(headers_1)))
 		.pause(15)
         
-        
+## Set native Transport = true on Linux
+
+See catling.conf:
+
+        useNativeTransport = true           
