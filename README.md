@@ -6,3 +6,5 @@ Tasks
 
 * startRecorder - open the recorder window
 * copyConfigFiles - generate the template configuration in src/test/resources
+* `test` - tests
+* `it:test` - integration tests
