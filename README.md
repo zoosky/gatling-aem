@@ -6,6 +6,6 @@ Tasks
 
 * `startRecorder` - open the recorder window
 * `copyConfigFiles` - generate the template configuration in src/test/resources
-* `test` - tests
+* `gatling:test` - tests
 * `it:test` - integration tests
 * `generateReport` - open last generated report in browser

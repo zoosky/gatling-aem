@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 import io.gatling.jdbc.Predef._
 
 class RecordedSimulation extends Simulation {
-
+/*
 	val httpProtocol = http
 		.baseURL("http://localhost:4502")
 		.inferHtmlResources()
@@ -238,4 +238,5 @@ class RecordedSimulation extends Simulation {
 			.check(status.is(304))))
 
 	setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+	*/
 }
