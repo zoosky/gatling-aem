@@ -9,8 +9,6 @@ import io.gatling.jdbc.Predef._
 class LoginSimulation extends Simulation {
 
 
-//form("cssSelector").saveAs("myForm")
-
 	val httpProtocol = http
 		.baseURL("http://localhost:4502")
 		.inferHtmlResources()
@@ -44,22 +42,23 @@ class LoginSimulation extends Simulation {
 	val uri2 = "http://localhost:4502"
 
 	val scn = scenario("LoginSimulation")
-		.exec(http("request_0")
+		.exec(http("logout")
 			.get("/system/sling/logout.html")
 			.headers(headers_0))
 		.pause(4)
-		.exec(http("request_4")
+		.exec(http("login")
 			.post("/libs/granite/core/content/login.html/j_security_check")
 			.headers(headers_4)
 			.formParam("_charset_", "utf-8")
 			.formParam("j_username", "admin")
 			.formParam("j_password", "admin")
 			.formParam("j_validate", "true")
-			
+			//.form("coral-Form").saveAs("loginForm")
 			.resources(http("request_5")
 			.get(uri2 + "/")
-			.headers(headers_0)
-			,
+			.headers(headers_0),
+			
+			
             http("request_6")
 			.get(uri2 + "/libs/granite/csrf/token.json"),
             http("request_7")
@@ -69,7 +68,13 @@ class LoginSimulation extends Simulation {
             http("request_8")
 			.get(uri2 + "/libs/cq/gui/content/common/configurationwizard.check.json")
 			.headers(headers_7)))
+		.exec { session =>
+			// displays the content of the session in the console (debugging only)
+			println(session)
 
+			// return the original session
+			session
+			}
 	setUp(
 		scn.inject(atOnceUsers(1))
 		).protocols(httpProtocol)
