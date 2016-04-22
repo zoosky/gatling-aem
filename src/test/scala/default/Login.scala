@@ -76,6 +76,6 @@ class LoginSimulation extends Simulation {
 			session
 			}
 	setUp(
-		scn.inject(atOnceUsers(1))
+		scn.inject(atOnceUsers(5))
 		).protocols(httpProtocol)
 }
