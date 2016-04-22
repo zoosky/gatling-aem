@@ -8,6 +8,9 @@ import io.gatling.jdbc.Predef._
 
 class LoginSimulation extends Simulation {
 
+
+//form("cssSelector").saveAs("myForm")
+
 	val httpProtocol = http
 		.baseURL("http://localhost:4502")
 		.inferHtmlResources()
@@ -40,7 +43,7 @@ class LoginSimulation extends Simulation {
     
 	val uri2 = "http://localhost:4502"
 
-	val scn = scenario("RecordedSimulation")
+	val scn = scenario("LoginSimulation")
 		.exec(http("request_0")
 			.get("/system/sling/logout.html")
 			.headers(headers_0))
@@ -67,5 +70,7 @@ class LoginSimulation extends Simulation {
 			.get(uri2 + "/libs/cq/gui/content/common/configurationwizard.check.json")
 			.headers(headers_7)))
 
-	setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+	setUp(
+		scn.inject(atOnceUsers(1))
+		).protocols(httpProtocol)
 }
