@@ -52,3 +52,7 @@ and a suffix
 		%3acrx.default
 		
 Note that in the `Day CRX Token Authentication Handler` the setting `Enable encapsulated token support` is set to false.
+
+# Gatling Notes
+
+To reuse POST responeses, see [Check DSL](http://gatling.io/docs/2.2.0/http/http_check.html)
