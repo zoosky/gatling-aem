@@ -1,3 +1,7 @@
+name := "gatling-aem"
+organization := "zoosky"
+version := "0.0.1-SNAPSHOT"
+
 enablePlugins(GatlingPlugin)
 
 scalaVersion := "2.11.8"
@@ -14,5 +18,12 @@ javaOptions in Gatling := overrideDefaultJavaOptions(
     "-Dsun.net.inetaddr.ttl=0"
     )
 
-libraryDependencies += "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.2.0" % "test"
-libraryDependencies += "io.gatling"            % "gatling-test-framework"    % "2.2.0" % "test"
+libraryDependencies += "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.2.0" //% "test"
+libraryDependencies += "io.gatling"            % "gatling-test-framework"    % "2.2.0" //% "test"
+
+
+mainClass in Compile := Some("io.gatling.app.Gatling")
+// Gatling contains scala-library
+assemblyOption in assembly := (assemblyOption in assembly).value
+  .copy(includeScala = false)
+mainClass in assembly := Some("io.gatling.app.Gatling")
