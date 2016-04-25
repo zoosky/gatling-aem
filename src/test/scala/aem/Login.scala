@@ -54,9 +54,12 @@ class Login extends Simulation {
          .formParam("j_username", "admin")
          .formParam("j_password", "admin")
          .formParam("j_validate", "true")
-         .check(status.is(200))
+         .check(
+            status.is(200),
+            status.in(200 to 210).saveAs("postok"),
+            form("coral-Form").saveAs("loginForm")
+         )
             //.saveAs("login-token"))
-         //.form("coral-Form").saveAs("loginForm")
          
          .resources(http("request_5")
          .get(uri2 + "/")
@@ -68,7 +71,7 @@ class Login extends Simulation {
             http("request_7")
          .get(uri2 + "/libs/cq/i18n/dict.en.json")
          .headers(headers_7)
-         .check(status.is(304)),
+         .check(status.is(200)),
             http("request_8")
          .get(uri2 + "/libs/cq/gui/content/common/configurationwizard.check.json")
          .headers(headers_7)))
