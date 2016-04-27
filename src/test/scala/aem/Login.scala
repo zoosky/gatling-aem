@@ -58,7 +58,9 @@ class Login extends Simulation {
             status.is(200),
             status.in(200 to 210).saveAs("postok"),
             form("coral-Form").saveAs("loginForm")
+            
          )
+         
             //.saveAs("login-token"))
          
          .resources(http("request_5")
@@ -75,15 +77,27 @@ class Login extends Simulation {
             http("request_8")
          .get(uri2 + "/libs/cq/gui/content/common/configurationwizard.check.json")
          .headers(headers_7)))
+       /*  
+        exec { postok =>
+        // displays the content of the session in the console (debugging only)
+         println( "---- STATUSCODE ---: ${postok}")
+         println(postok)
+
+        // return the original session
+        postok
+        }
+        */
+     //.exec(println( "STATUSCODE: ${postok}"))
       .exec { session =>
          // displays the content of the session in the console (debugging only)
-         println(session)
-
+         println(
+         session.get("gatling.http.cookies")
+         )
          // return the original session
          session
          }
    setUp(
-      scn.inject(atOnceUsers(5))
+      scn.inject(atOnceUsers(1))
       //.assertions( global.failedRequests.count.is(0))
       .protocols(httpProtocol)
       

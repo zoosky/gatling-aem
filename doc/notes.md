@@ -53,6 +53,16 @@ and a suffix
 		
 Note that in the `Day CRX Token Authentication Handler` the setting `Enable encapsulated token support` is set to false.
 
+	-	CSRF-Token -> CSRF-Token remove POST
+	
+	
+   
+ 
+Apache Jackrabbit Oak TokenConfiguration
+
+Default author session timeout: 43200000 ms
+
+
 # Gatling Notes
 
 To reuse POST responeses, see [Check DSL](http://gatling.io/docs/2.2.0/http/http_check.html)
